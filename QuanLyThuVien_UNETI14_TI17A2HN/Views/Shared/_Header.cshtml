@@ -1,42 +1,29 @@
-﻿
-<header class="admin-header">
-
-    <div class="header-left">
-
-        <button type="button"
-                class="sidebar-toggle"
-                id="sidebarToggle">
-
-            <i class="fa-solid fa-bars"></i>
-
-        </button>
-
-        <div class="header-title">
-            <span>Hệ thống quản lý thư viện</span>
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+    <div class="container-fluid">
+        @* @if (isLoggedIn)
+        {
+            <button class="navbar-toggler me-2 d-md-none" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Mở menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        } *@
+        <a class="navbar-brand fw-bold" asp-area="" asp-controller="Home" asp-action="Index">
+            <i class="fas fa-book-open me-2"></i>Thư Viện
+        </a>
+        <div class="ms-auto d-flex align-items-center">
+            @* @if (isLoggedIn)
+            {
+                <span class="text-white me-3 d-none d-sm-inline">
+                    <i class="fas fa-user-circle me-1"></i>@(session?.GetString("UserName"))
+                    <span class="badge bg-light text-primary ms-1">@roleName</span>
+                </span>
+                <form asp-controller="TaiKhoan" asp-action="Logout" method="post" class="m-0">
+                    <button type="submit" class="btn btn-light btn-sm"><i class="fas fa-sign-out-alt me-1"></i>Đăng xuất</button>
+                </form>
+            }
+            else
+            { *@
+                <a asp-controller="TaiKhoan" asp-action="Login" class="btn btn-light btn-sm">Đăng nhập</a>
+            @* } *@
         </div>
-
     </div>
-
-
-    <div class="header-right">
-
-        <button type="button" class="header-icon">
-            <i class="fa-regular fa-bell"></i>
-        </button>
-
-        <div class="header-user">
-
-            <div class="user-avatar">
-                <i class="fa-solid fa-user"></i>
-            </div>
-
-            <div class="user-info">
-                <span class="user-name">Quản trị viên</span>
-                <span class="user-role">Nhân viên</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</header>
+</nav>

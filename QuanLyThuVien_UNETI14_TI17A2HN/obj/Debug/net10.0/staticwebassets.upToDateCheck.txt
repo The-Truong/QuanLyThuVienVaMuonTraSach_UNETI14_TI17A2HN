@@ -1,4 +1,6 @@
+wwwroot\css\site.css
 wwwroot\favicon.ico
+wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -59,9 +61,9 @@ wwwroot\lib\jquery\dist\jquery.slim.js
 wwwroot\lib\jquery\dist\jquery.slim.min.js
 wwwroot\lib\jquery\dist\jquery.slim.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\site.css
-wwwroot\js\site.js
+D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\js\site.js
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\favicon.ico
+D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\css\site.css
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css
@@ -121,5 +123,3 @@ D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroo
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\lib\jquery\dist\jquery.slim.min.js
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\lib\jquery\dist\jquery.slim.min.map
 D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\lib\jquery\LICENSE.txt
-D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\css\site.css
-D:\Code.Net\QuanLyThuVien_UNETI14_TI17A2HN\QuanLyThuVien_UNETI14_TI17A2HN\wwwroot\js\site.js

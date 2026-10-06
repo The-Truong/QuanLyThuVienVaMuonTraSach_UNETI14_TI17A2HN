@@ -1,108 +1,156 @@
-﻿<aside class="sidebar" id="sidebar">
+﻿@{
+    var curController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    var curAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
 
-    <!-- Menu -->
-    <nav class="sidebar-menu">
+    string Active(string controller, string? action = null)
+    {
+        return curController.Equals(controller, StringComparison.OrdinalIgnoreCase)
+            && (action == null || curAction.Equals(action, StringComparison.OrdinalIgnoreCase))
+                ? "active"
+                : "";
+    }
+}
 
-        <div class="menu-title">
-            TỔNG QUAN
-        </div>
+<nav id="sidebarMenu"
+     class="col-md-3 col-lg-2 d-md-block sidebar collapse">
 
-        <a asp-controller="Home"
-               asp-action="Index"
-               class="menu-item">
+    <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
 
-            <i class="fa-solid fa-gauge-high"></i>
-
-            <span>Dashboard</span>
-
-        </a>
-
-
-        <div class="menu-title">
-            QUẢN LÝ
-        </div>
-
-        <a href="#" class="menu-item">
-
-            <i class="fa-solid fa-book"></i>
-
-            <span>Quản lý sách</span>
-
-        </a>
+            <!-- Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link @Active("Home")"
+                       asp-controller="Home"
+                       asp-action="Index">
+                    <i class="fas fa-gauge-high"></i>
+                    Dashboard
+                </a>
+            </li>
 
 
-        <a href="#" class="menu-item">
+            <!-- Nghiệp vụ -->
+            <li class="sidebar-heading">
+                Nghiệp vụ
+            </li>
 
-            <i class="fa-solid fa-layer-group"></i>
+            <li class="nav-item">
+                <a class="nav-link @Active("PhieuMuon")"
+                       asp-controller="PhieuMuon"
+                       asp-action="Index">
+                    <i class="fas fa-right-left"></i>
+                    Mượn / Trả sách
+                </a>
+            </li>
 
-            <span>Thể loại</span>
+            <li class="nav-item">
+                <a class="nav-link @Active("BanDoc")"
+                       asp-controller="BanDoc"
+                       asp-action="Index">
+                    <i class="fas fa-users"></i>
+                    Bạn đọc
+                </a>
+            </li>
 
-        </a>
-
-
-        <a href="#" class="menu-item">
-
-            <i class="fa-solid fa-building"></i>
-
-            <span>Nhà xuất bản</span>
-
-        </a>
-
-
-        <a href="#" class="menu-item">
-
-            <i class="fa-solid fa-users"></i>
-
-            <span>Bạn đọc</span>
-
-        </a>
-
-
-        <div class="menu-title">
-            MƯỢN / TRẢ
-        </div>
-
-
-        <a href="#" class="menu-item">
-
-            <i class="fa-solid fa-book-open-reader"></i>
-
-            <span>Phiếu mượn</span>
-
-        </a>
+            <li class="nav-item">
+                <a class="nav-link @Active("Sach")"
+                       asp-controller="Sach"
+                       asp-action="Index">
+                    <i class="fas fa-book"></i>
+                    Sách
+                </a>
+            </li>
 
 
-        <a href="#" class="menu-item">
+            <!-- Báo cáo -->
+            <li class="sidebar-heading">
+                Báo cáo
+            </li>
 
-            <i class="fa-solid fa-right-left"></i>
+            <li class="nav-item">
+                <a class="nav-link @Active("ThongKe", "Index")"
+                       asp-controller="ThongKe"
+                       asp-action="Index">
+                    <i class="fas fa-chart-pie"></i>
+                    Thống kê
+                </a>
+            </li>
 
-            <span>Mượn / trả sách</span>
-
-        </a>
-
-
-        <div class="menu-title">
-            HỆ THỐNG
-        </div>
-
-
-        <a href="#" class="menu-item">
-
-            <i class="fa-solid fa-users-gear"></i>
-
-            <span>Tài khoản</span>
-
-        </a>
+            <li class="nav-item">
+                <a class="nav-link @Active("ThongKe", "QuaHan")"
+                       asp-controller="ThongKe"
+                       asp-action="QuaHan">
+                    <i class="fas fa-clock"></i>
+                    Xử lý quá hạn
+                </a>
+            </li>
 
 
-        <a href="#" class="menu-item">
+            <!-- Quản trị hệ thống -->
+            <li class="sidebar-heading">
+                Quản trị hệ thống
+            </li>
 
-            <i class="fa-solid fa-gear"></i>
+            <li class="nav-item">
+                <a class="nav-link @Active("TaiKhoan")"
+                       asp-controller="TaiKhoan"
+                       asp-action="Index">
+                    <i class="fas fa-user-shield"></i>
+                    Tài khoản
+                </a>
+            </li>
 
-            <span>Cài đặt</span>
+            <li class="nav-item">
+                <a class="nav-link @Active("TheLoai")"
+                       asp-controller="TheLoai"
+                       asp-action="Index">
+                    <i class="fas fa-tags"></i>
+                    Thể loại
+                </a>
+            </li>
 
-        </a>
+            <li class="nav-item">
+                <a class="nav-link @Active("NhaXuatBan")"
+                       asp-controller="NhaXuatBan"
+                       asp-action="Index">
+                    <i class="fas fa-building"></i>
+                    Nhà xuất bản
+                </a>
+            </li>
 
-    </nav>
 
-</aside>
+            <!-- Bạn đọc -->
+            <li class="sidebar-heading">
+                Cá nhân
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @Active("Sach", "TraCuu")"
+                       asp-controller="Sach"
+                       asp-action="TraCuu">
+                    <i class="fas fa-search"></i>
+                    Tra cứu sách
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @Active("PhieuMuon", "LichSu")"
+                       asp-controller="PhieuMuon"
+                       asp-action="LichSu">
+                    <i class="fas fa-clock-rotate-left"></i>
+                    Lịch sử mượn
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link @Active("HoSo")"
+                       asp-controller="HoSo"
+                       asp-action="Index">
+                    <i class="fas fa-id-card"></i>
+                    Hồ sơ cá nhân
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+</nav>

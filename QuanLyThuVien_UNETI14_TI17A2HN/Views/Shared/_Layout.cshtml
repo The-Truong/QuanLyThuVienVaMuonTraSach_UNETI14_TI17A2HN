@@ -6,22 +6,24 @@
     <title>@ViewData["Title"] - QuanLyThuVien_UNETI14_TI17A2HN</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/QuanLyThuVien_UNETI14_TI17A2HN.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="admin-wrapper"> 
-        <!-- Header --> 
-        <partial name="_Header" /> 
-        <div class="admin-body"> 
-            <!-- Sidebar --> 
-            <partial name="_Sidebar" /> 
-            <!-- Main content --> 
-            <main class="main-content"> 
-                @RenderBody() 
-            </main>
+    <header>
+        <partial name="_Header" />
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+                <partial name="_Sidebar" />
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 content-wrapper">
+                    @RenderBody()
+                </main>
         </div>
     </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
