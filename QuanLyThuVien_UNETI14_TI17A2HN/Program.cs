@@ -1,3 +1,6 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using QuanLyThuVien_UNETI14_TI17A2HN.Data;
 namespace QuanLyThuVien_UNETI14_TI17A2HN
 {
     public class Program
@@ -5,6 +8,8 @@ namespace QuanLyThuVien_UNETI14_TI17A2HN
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+            builder.Services.AddDbContext<QuanLyThuVien_UNETI14_TI17A2HNContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("QuanLyThuVien_UNETI14_TI17A2HNContext") ?? throw new InvalidOperationException("Connection string 'QuanLyThuVien_UNETI14_TI17A2HNContext' not found.")));
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
