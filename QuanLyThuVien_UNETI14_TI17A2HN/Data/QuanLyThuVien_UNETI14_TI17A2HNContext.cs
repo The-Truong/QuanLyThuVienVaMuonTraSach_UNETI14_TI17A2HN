@@ -15,5 +15,7 @@ namespace QuanLyThuVien_UNETI14_TI17A2HN.Data
         }
 
         public DbSet<QuanLyThuVien_UNETI14_TI17A2HN.Models.Sach> Sach { get; set; } = default!;
+        public DbSet<QuanLyThuVien_UNETI14_TI17A2HN.Models.NhaXuatBan> NhaXuatBan { get; set; } = default!;
+        public DbSet<QuanLyThuVien_UNETI14_TI17A2HN.Models.TheLoai> TheLoai { get; set; } = default!;
     }
 }

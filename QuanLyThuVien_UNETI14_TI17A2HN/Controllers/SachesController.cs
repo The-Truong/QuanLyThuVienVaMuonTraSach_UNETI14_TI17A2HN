@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using QuanLyThuVien_UNETI14_TI17A2HN.Data;
 using QuanLyThuVien_UNETI14_TI17A2HN.Models;
+using QuanLyThuVien_UNETI14_TI17A2HN.ViewModels;
 
 namespace QuanLyThuVien_UNETI14_TI17A2HN.Controllers
 {
@@ -19,11 +20,67 @@ namespace QuanLyThuVien_UNETI14_TI17A2HN.Controllers
             _context = context;
         }
 
-        // GET: Saches
-        public async Task<IActionResult> Index()
+        private static IQueryable<Sach> ApplyFilters(IQueryable<Sach> sachs, SachQuery q)
         {
-            var quanLyThuVien_UNETI14_TI17A2HNContext = _context.Sach.Include(s => s.NhaXuatBan).Include(s => s.TheLoai);
-            return View(await quanLyThuVien_UNETI14_TI17A2HNContext.ToListAsync());
+            if (!string.IsNullOrWhiteSpace(q.SearchString))
+            {
+                var key = q.SearchString.Trim();
+                sachs = sachs.Where(s => s.TenSach.Contains(key)
+                    || s.TheLoai.TenTheLoai.Contains(key)
+                    || s.NhaXuatBan.TenNhaXuatBan.Contains(key));
+            }
+            if (q.TheLoaiId.HasValue) sachs = sachs.Where(s => s.MaTheLoai == q.TheLoaiId);
+            if (q.NhaXuatBanId.HasValue) sachs = sachs.Where(s => s.MaNhaXuatBan == q.NhaXuatBanId);
+            if (q.NamXuatBan.HasValue) sachs = sachs.Where(s => s.NamXuatBan == q.NamXuatBan);
+            if (q.GiaTu.HasValue) sachs = sachs.Where(s => s.DonGia >= q.GiaTu.Value);
+            if (q.GiaDen.HasValue) sachs = sachs.Where(s => s.DonGia <= q.GiaDen.Value);
+
+            if (q.TrangThai == "hienthi") sachs = sachs.Where(s => s.TrangThai);
+            else if (q.TrangThai == "khoa") sachs = sachs.Where(s => !s.TrangThai);
+
+            if (q.TinhTrang == "con") sachs = sachs.Where(s => s.TrangThai && s.SoLuongCon > 0);
+            else if (q.TinhTrang == "het") sachs = sachs.Where(s => !s.TrangThai || s.SoLuongCon <= 0);
+
+            return q.SortOrder switch
+            {
+                "name_desc" => sachs.OrderByDescending(s => s.TenSach),
+                "year" => sachs.OrderBy(s => s.NamXuatBan).ThenBy(s => s.TenSach),
+                "year_desc" => sachs.OrderByDescending(s => s.NamXuatBan).ThenBy(s => s.TenSach),
+                "price" => sachs.OrderBy(s => s.DonGia).ThenBy(s => s.TenSach),
+                "price_desc" => sachs.OrderByDescending(s => s.DonGia).ThenBy(s => s.TenSach),
+                "con" => sachs.OrderBy(s => s.SoLuongCon).ThenBy(s => s.TenSach),
+                "con_desc" => sachs.OrderByDescending(s => s.SoLuongCon).ThenBy(s => s.TenSach),
+                _ => sachs.OrderBy(s => s.TenSach),
+            };
+        }
+
+        private async Task<(List<Sach> Items, int Page, int TotalPages, int Count)> PageAsync(IQueryable<Sach> sachs, int? pageNumber, int pageSize)
+        {
+            int count = await sachs.CountAsync();
+            int totalPages = Math.Max(1, (int)Math.Ceiling(count / (double)pageSize));
+            int page = Math.Clamp(pageNumber ?? 1, 1, totalPages);
+            var items = await sachs.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync(); // phân trang trên truy vấn
+            return (items, page, totalPages, count);
+        }
+
+        // GET: Saches
+        public async Task<IActionResult> Index([FromQuery] SachQuery q)
+        {
+            //var quanLyThuVien_UNETI14_TI17A2HNContext = _context.Sach.Include(s => s.NhaXuatBan).Include(s => s.TheLoai);
+            //return View(await quanLyThuVien_UNETI14_TI17A2HNContext.ToListAsync());
+
+
+            ViewData["TheLoaiId"] = new SelectList(_context.TheLoai.OrderBy(t => t.ThuTuHienThi), "MaTheLoai", "TenTheLoai", q.TheLoaiId);
+            ViewData["NhaXuatBanId"] = new SelectList(_context.NhaXuatBan.OrderBy(n => n.TenNhaXuatBan), "MaNhaXuatBan", "TenNhaXuatBan", q.NhaXuatBanId);
+
+            var query = ApplyFilters(_context.Sach.Include(s => s.TheLoai).Include(s => s.NhaXuatBan), q);
+            var r = await PageAsync(query, q.PageNumber, 10);
+
+            ViewData["PageNumber"] = r.Page;
+            ViewData["TotalPages"] = r.TotalPages;
+            ViewData["TotalCount"] = r.Count;
+            ViewData["Query"] = q;
+            return View(r.Items);
         }
 
         // GET: Saches/Details/5

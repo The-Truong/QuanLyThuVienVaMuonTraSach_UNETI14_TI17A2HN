@@ -1,0 +1,91 @@
+﻿@model QuanLyThuVien_UNETI14_TI17A2HN.Models.TheLoai
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+@* <h1>Create</h1>
+
+<h4>TheLoai</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TenTheLoai" class="control-label"></label>
+                <input asp-for="TenTheLoai" class="form-control" />
+                <span asp-validation-for="TenTheLoai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoTa" class="control-label"></label>
+                <input asp-for="MoTa" class="form-control" />
+                <span asp-validation-for="MoTa" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TrangThai" /> @Html.DisplayNameFor(model => model.TrangThai)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThuTuHienThi" class="control-label"></label>
+                <input asp-for="ThuTuHienThi" class="form-control" />
+                <span asp-validation-for="ThuTuHienThi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div> *@
+
+<h2><i class="fas fa-plus-circle me-2"></i> Thêm Thể Loại</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card shadow">
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="TenTheLoai" class="form-label">Tên Thể Loại</label>
+                        <input asp-for="TenTheLoai" class="form-control" />
+                        <span asp-validation-for="TenTheLoai" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="MoTa" class="form-label">Mô Tả</label>
+                        <textarea asp-for="MoTa" class="form-control" rows="3"></textarea>
+                        <span asp-validation-for="MoTa" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label asp-for="ThuTuHienThi" class="form-label">Thứ Tự Hiển Thị</label>
+                        <input asp-for="ThuTuHienThi" type="number" class="form-control" />
+                        <span asp-validation-for="ThuTuHienThi" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input asp-for="TrangThai" class="form-check-input" />
+                        <label asp-for="TrangThai" class="form-check-label">Hoạt Động</label>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-save me-1"></i> Lưu</button>
+                        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left me-1"></i> Quay lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+@* <h1>Create</h1>
 
 <h4>Sach</h4>
 <hr />
@@ -73,4 +73,75 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@
+
+
+<h2><i class="fas fa-plus-circle me-2"></i> Thêm Sách Mới</h2>
+<hr />
+
+<div class="card shadow">
+    <div class="card-body">
+        <form asp-action="Create" class="row g-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="col-md-6">
+                <label asp-for="TenSach" class="form-label">Tên Sách</label>
+                <input asp-for="TenSach" class="form-control" />
+                <span asp-validation-for="TenSach" class="text-danger"></span>
+            </div>
+            
+            <div class="col-md-3">
+                <label asp-for="MaTheLoai" class="form-label">Thể Loại</label>
+                <select asp-for="MaTheLoai" class="form-select" asp-items="ViewBag.MaTheLoai"></select>
+            </div>
+            
+            <div class="col-md-3">
+                <label asp-for="MaNhaXuatBan" class="form-label">Nhà Xuất Bản</label>
+                <select asp-for="MaNhaXuatBan" class="form-select" asp-items="ViewBag.MaNhaXuatBan"></select>
+            </div>
+            
+            <div class="col-md-3">
+                <label asp-for="NamXuatBan" class="form-label">Năm XB</label>
+                <input asp-for="NamXuatBan" type="number" class="form-control" />
+            </div>
+            
+            <div class="col-md-3">
+                <label asp-for="SoLuong" class="form-label">Số Lượng</label>
+                <input asp-for="SoLuong" type="number" class="form-control" />
+                <span asp-validation-for="SoLuong" class="text-danger"></span>
+            </div>
+            
+            <div class="col-md-3">
+                <label asp-for="DonGia" class="form-label">Đơn Giá</label>
+                <input asp-for="DonGia" type="number" class="form-control" step="0.01" />
+                <span asp-validation-for="DonGia" class="text-danger"></span>
+            </div>
+            
+            <div class="col-md-3">
+                <label asp-for="ViTriKeSach" class="form-label">Vị Trí Kệ</label>
+                <input asp-for="ViTriKeSach" class="form-control" />
+            </div>
+            
+            <div class="col-md-12">
+                <label asp-for="GhiChu" class="form-label">Ghi Chú</label>
+                <textarea asp-for="GhiChu" class="form-control" rows="3"></textarea>
+            </div>
+            
+            <div class="col-md-12 form-check ms-3">
+                <input asp-for="TrangThai" class="form-check-input" />
+                <label asp-for="TrangThai" class="form-check-label">Khả dụng (Hiển thị cho bạn đọc)</label>
+            </div>
+            
+            <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save me-1"></i> Lưu sách</button>
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left me-1"></i> Quay lại</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

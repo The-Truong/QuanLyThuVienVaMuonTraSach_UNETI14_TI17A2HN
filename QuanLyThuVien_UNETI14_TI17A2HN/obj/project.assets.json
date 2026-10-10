@@ -1966,10 +1966,10 @@
           }
         }
       },
-      "NuGet.Common/6.12.1": {
+      "NuGet.Common/6.12.5": {
         "type": "package",
         "dependencies": {
-          "NuGet.Frameworks": "6.12.1"
+          "NuGet.Frameworks": "6.12.5"
         },
         "compile": {
           "lib/netstandard2.0/NuGet.Common.dll": {
@@ -1982,10 +1982,10 @@
           }
         }
       },
-      "NuGet.Configuration/6.12.1": {
+      "NuGet.Configuration/6.12.5": {
         "type": "package",
         "dependencies": {
-          "NuGet.Common": "6.12.1",
+          "NuGet.Common": "6.12.5",
           "System.Security.Cryptography.ProtectedData": "4.4.0"
         },
         "compile": {
@@ -2017,7 +2017,7 @@
           }
         }
       },
-      "NuGet.Frameworks/6.12.1": {
+      "NuGet.Frameworks/6.12.5": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NuGet.Frameworks.dll": {
@@ -2047,12 +2047,12 @@
           }
         }
       },
-      "NuGet.Packaging/6.12.1": {
+      "NuGet.Packaging/6.12.5": {
         "type": "package",
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
-          "NuGet.Configuration": "6.12.1",
-          "NuGet.Versioning": "6.12.1",
+          "NuGet.Configuration": "6.12.5",
+          "NuGet.Versioning": "6.12.5",
           "System.Security.Cryptography.Pkcs": "6.0.4"
         },
         "compile": {
@@ -2082,10 +2082,10 @@
           }
         }
       },
-      "NuGet.Protocol/6.12.1": {
+      "NuGet.Protocol/6.12.5": {
         "type": "package",
         "dependencies": {
-          "NuGet.Packaging": "6.12.1"
+          "NuGet.Packaging": "6.12.5"
         },
         "compile": {
           "lib/net5.0/NuGet.Protocol.dll": {
@@ -2098,7 +2098,7 @@
           }
         }
       },
-      "NuGet.Versioning/6.12.1": {
+      "NuGet.Versioning/6.12.5": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NuGet.Versioning.dll": {
@@ -5612,10 +5612,10 @@
         "packageIcon.png"
       ]
     },
-    "NuGet.Common/6.12.1": {
-      "sha512": "nk8nTdhQl4x2VaAQUvefI7DDYAuBDlE+OZZRffm50Qx5dUAEq8wkc5JIqrN2lTEohObHPI/SXyG2UFdMQkrdyg==",
+    "NuGet.Common/6.12.5": {
+      "sha512": "ceynBLlidkZIfrLdujE3f9FDYTLjs884sRL0zrX3PgTbGGfrLxZGz8KciHsqEnSBqMwpimbxdNrDcorU+Zd9oA==",
       "type": "package",
-      "path": "nuget.common/6.12.1",
+      "path": "nuget.common/6.12.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5625,14 +5625,14 @@
         "lib/net472/NuGet.Common.xml",
         "lib/netstandard2.0/NuGet.Common.dll",
         "lib/netstandard2.0/NuGet.Common.xml",
-        "nuget.common.6.12.1.nupkg.sha512",
+        "nuget.common.6.12.5.nupkg.sha512",
         "nuget.common.nuspec"
       ]
     },
-    "NuGet.Configuration/6.12.1": {
-      "sha512": "IRwlY1379ZgJ0oEJvjD+lDuOhJ5S1fsU5n/bEC5/i0+N9bo2WIMDAdaQ/qIdyK/gMJ/YWS+++GSX6rN7luqEvg==",
+    "NuGet.Configuration/6.12.5": {
+      "sha512": "6ZHtYcHdMrnWWfeiMBrZTtytnjmb9N7eh4S26peV6mBQF71Mv/7X0gyw0VW9ZfEkm31sVD736a7mKNHf7wee1Q==",
       "type": "package",
-      "path": "nuget.configuration/6.12.1",
+      "path": "nuget.configuration/6.12.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5642,7 +5642,7 @@
         "lib/net472/NuGet.Configuration.xml",
         "lib/netstandard2.0/NuGet.Configuration.dll",
         "lib/netstandard2.0/NuGet.Configuration.xml",
-        "nuget.configuration.6.12.1.nupkg.sha512",
+        "nuget.configuration.6.12.5.nupkg.sha512",
         "nuget.configuration.nuspec"
       ]
     },
@@ -5665,10 +5665,10 @@
         "nuget.dependencyresolver.core.nuspec"
       ]
     },
-    "NuGet.Frameworks/6.12.1": {
-      "sha512": "kPaRD5RJC0ByUg+yGX6bDz5XHMI7OYmQwP8kbtef+vZ+csj/VDb5Bwas4ChxwhoAbI8lEvwP5/3aViQPpgNBow==",
+    "NuGet.Frameworks/6.12.5": {
+      "sha512": "myEA6gdCZLHrcMSbOFxqaIfYkMFpMePup35qZlYUxSQNrL0WG8im3/pc8trrd9ArqdO8cgKhm9DnZrnYCu33Zg==",
       "type": "package",
-      "path": "nuget.frameworks/6.12.1",
+      "path": "nuget.frameworks/6.12.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5678,7 +5678,7 @@
         "lib/net472/NuGet.Frameworks.xml",
         "lib/netstandard2.0/NuGet.Frameworks.dll",
         "lib/netstandard2.0/NuGet.Frameworks.xml",
-        "nuget.frameworks.6.12.1.nupkg.sha512",
+        "nuget.frameworks.6.12.5.nupkg.sha512",
         "nuget.frameworks.nuspec"
       ]
     },
@@ -5699,10 +5699,10 @@
         "nuget.librarymodel.nuspec"
       ]
     },
-    "NuGet.Packaging/6.12.1": {
-      "sha512": "6s5NO3VNX6fIx6GwuWZtIsal9W1xkelYd3Vg2KUAg1zGqnKC3wB5IZlombvVGVGcwyl/A+iDvpUwSvgeDoB3wA==",
+    "NuGet.Packaging/6.12.5": {
+      "sha512": "jQ5SCP29VgDVxxyFS/Tkg3lIngPeKoVxHdY7xfZNOyIPousbck6SnnqAEt2kZGfvjxFiSePcsKYu99CI/nE/JQ==",
       "type": "package",
-      "path": "nuget.packaging/6.12.1",
+      "path": "nuget.packaging/6.12.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5714,7 +5714,7 @@
         "lib/net5.0/NuGet.Packaging.xml",
         "lib/netstandard2.0/NuGet.Packaging.dll",
         "lib/netstandard2.0/NuGet.Packaging.xml",
-        "nuget.packaging.6.12.1.nupkg.sha512",
+        "nuget.packaging.6.12.5.nupkg.sha512",
         "nuget.packaging.nuspec"
       ]
     },
@@ -5737,10 +5737,10 @@
         "nuget.projectmodel.nuspec"
       ]
     },
-    "NuGet.Protocol/6.12.1": {
-      "sha512": "VBN7OtG/Y9Rnj1WT3G8X88ZHu5Pq+yzca5Z6OI/FWXcENVAQkUl0ml6Cv8ghOqYyiuvnObGDV9oWLD/bIuVtDw==",
+    "NuGet.Protocol/6.12.5": {
+      "sha512": "92F513aAcg2zHGGdv3kqHS/nYe77tFeKr9Bd5pq9h3N1S00iDkIzNTdQ6Ua9N+2D1VfyqXzc79cuOK2n99xHCA==",
       "type": "package",
-      "path": "nuget.protocol/6.12.1",
+      "path": "nuget.protocol/6.12.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5752,14 +5752,14 @@
         "lib/net5.0/NuGet.Protocol.xml",
         "lib/netstandard2.0/NuGet.Protocol.dll",
         "lib/netstandard2.0/NuGet.Protocol.xml",
-        "nuget.protocol.6.12.1.nupkg.sha512",
+        "nuget.protocol.6.12.5.nupkg.sha512",
         "nuget.protocol.nuspec"
       ]
     },
-    "NuGet.Versioning/6.12.1": {
-      "sha512": "fJ6rFYANDnohFsdpaY79FvrJxI6murmoOxXz6nZlf819F48+IBKMnAIg3oIBRtZq5y498ObMtKnro5IitvizUg==",
+    "NuGet.Versioning/6.12.5": {
+      "sha512": "9/Sniz+tzNAjcSziMmh62PIbF1mxaSC+P5Mdw1LgMleCbeaObjkkR/RUlduu6yCL3EfruACO/uknDJ5xCH3quQ==",
       "type": "package",
-      "path": "nuget.versioning/6.12.1",
+      "path": "nuget.versioning/6.12.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -5769,7 +5769,7 @@
         "lib/net472/NuGet.Versioning.xml",
         "lib/netstandard2.0/NuGet.Versioning.dll",
         "lib/netstandard2.0/NuGet.Versioning.xml",
-        "nuget.versioning.6.12.1.nupkg.sha512",
+        "nuget.versioning.6.12.5.nupkg.sha512",
         "nuget.versioning.nuspec"
       ]
     },
@@ -6183,7 +6183,9 @@
       "Microsoft.EntityFrameworkCore.Design >= 10.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 10.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.12",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.2"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 10.0.2",
+      "NuGet.Packaging >= 6.12.5",
+      "NuGet.Protocol >= 6.12.5"
     ]
   },
   "packageFolders": {
@@ -6257,6 +6259,14 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[10.0.2, )"
+          },
+          "NuGet.Packaging": {
+            "target": "Package",
+            "version": "[6.12.5, )"
+          },
+          "NuGet.Protocol": {
+            "target": "Package",
+            "version": "[6.12.5, )"
           }
         },
         "imports": [
@@ -6695,27 +6705,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NuGet.Packaging' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "libraryId": "NuGet.Packaging",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    },
-    {
-      "code": "NU1901",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'NuGet.Protocol' 6.12.1 has a known low severity vulnerability, https://github.com/advisories/GHSA-g4vj-cjjj-v7hg",
-      "libraryId": "NuGet.Protocol",
-      "targetGraphs": [
-        "net10.0"
-      ]
-    }
-  ]
+  }
 }
