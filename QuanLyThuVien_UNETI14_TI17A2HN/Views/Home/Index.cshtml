@@ -1,5 +1,73 @@
-﻿@{
+﻿@model QuanLyThuVien_UNETI14_TI17A2HN.ViewModels.DashboardViewModel
+@{
     ViewData["Title"] = "Dashboard";
+    var cards = new[]
+    {
+        (Nhan: "Tổng thể loại", Gia: Model.TongTheLoai.ToString("N0"), Icon: "fa-tags", Mau: "primary"),
+        (Nhan: "Tổng số sách", Gia: Model.TongSach.ToString("N0"), Icon: "fa-book", Mau: "primary"),
+        (Nhan: "Sách khả dụng", Gia: Model.SachKhaDung.ToString("N0"), Icon: "fa-circle-check", Mau: "success"),
+        (Nhan: "Tổng bạn đọc", Gia: Model.TongBanDoc.ToString("N0"), Icon: "fa-users", Mau: "info"),
+        (Nhan: "Tổng giao dịch", Gia: Model.TongGiaoDich.ToString("N0"), Icon: "fa-right-left", Mau: "secondary"),
+        (Nhan: "Chờ duyệt", Gia: Model.PhieuChoDuyet.ToString("N0"), Icon: "fa-hourglass-half", Mau: "warning"),
+        (Nhan: "Đang mượn", Gia: Model.PhieuDangMuon.ToString("N0"), Icon: "fa-book-reader", Mau: "primary"),
+        (Nhan: "Quá hạn", Gia: Model.PhieuQuaHan.ToString("N0"), Icon: "fa-triangle-exclamation", Mau: "danger"),
+        (Nhan: "Tổng tiền phạt", Gia: Model.TongTienPhat.ToString("N0") + " đ", Icon: "fa-coins", Mau: "dark")
+    };
+    var maxSl = Model.ThongKeTheLoai.Any() ? Math.Max(1, Model.ThongKeTheLoai.Max(t => t.SoLuong)) : 1;
 }
 
-<div>Tổng quan</div>
+<h2 class="fw-bold mb-3"><i class="fas fa-chart-line me-2 text-primary"></i>Dashboard</h2>
+
+<div class="row g-3 mb-4">
+    @foreach (var c in cards)
+    {
+        <div class="col-6 col-xl-4">
+            <div class="card kpi-card border-start border-4 shadow-sm h-100 @("border-" + c.Mau)">
+                <div class="card-body d-flex justify-content-between align-items-center">
+                    <div>
+                        <div class="text-muted small text-uppercase">@c.Nhan</div>
+                        <div class="fs-3 fw-bold">@c.Gia</div>
+                    </div>
+                    <i class="fas @c.Icon fa-2x opacity-50 @("text-" + c.Mau)"></i>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="row g-3">
+    <div class="col-lg-7">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white fw-bold"><i class="fas fa-tags me-2 text-primary"></i>Số lượng sách theo thể loại</div>
+            <div class="card-body">
+                @foreach (var t in Model.ThongKeTheLoai)
+                {
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between small mb-1">
+                            <span class="fw-semibold">@t.TenTheLoai</span>
+                            <span class="text-muted">@t.SoDauSach đầu sách · @t.SoLuong cuốn</span>
+                        </div>
+                        <div class="progress" style="height: 12px;">
+                            <div class="progress-bar" style="width: @(t.SoLuong * 100 / maxSl)%"></div>
+                        </div>
+                    </div>
+                }
+                @if (!Model.ThongKeTheLoai.Any())
+                {
+                    <div class="text-muted text-center py-3">Chưa có dữ liệu.</div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5">
+        <div class="card shadow-sm h-100">
+            <div class="card-header bg-white fw-bold"><i class="fas fa-percentage me-2 text-primary"></i>Tỷ lệ sách đang mượn</div>
+            <div class="card-body text-center">
+                <div class="donut mx-auto mb-3" style="--pct: @Model.TyLeDangMuon.ToString(System.Globalization.CultureInfo.InvariantCulture)">
+                    <div class="donut-inner"><span class="fs-3 fw-bold">@Model.TyLeDangMuon%</span><small class="text-muted">đang mượn</small></div>
+                </div>
+                <div class="small text-muted">@Model.SachDangMuon / @Model.TongSach cuốn đang được mượn</div>
+            </div>
+        </div>
+    </div>
+</div>
